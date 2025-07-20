@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Panel</title>
+  </head>
+  <body>
+    <h1>Admin: Quản lý video</h1>
+    <input type="file" id="videoUpload" />
+    <button onclick="uploadVideo()">Tải lên</button>
+    <p id="status"></p>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js"></script>
+
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyAXUcgQ2Si4tRs4Ti9GF29ND6xA4NR-uig",
+        authDomain: "test-iptv-faa05.firebaseapp.com",
+        projectId: "test-iptv-faa05",
+        storageBucket: "test-iptv-faa05.firebasestorage.app",
+        messagingSenderId: "686255418018",
+        appId: "1:686255418018:web:a02927ac1d82acad7305fb",
+        measurementId: "G-X4L1L3YLD2",
+      };
+
+      const app = firebase.initializeApp(firebaseConfig);
+      const storage = firebase.storage();
+
+      function uploadVideo() {
+        const file = document.getElementById("videoUpload").files[0];
+        if (!file) {
+          alert("Chọn video trước khi tải lên.");
+          return;
+        }
+
+        const ref = storage.ref("videos/" + file.name);
+        const uploadTask = ref.put(file);
+
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            document.getElementById("status").innerText = "Đang tải lên...";
+          },
+          (error) => {
+            document.getElementById("status").innerText = "Lỗi: " + error;
+          },
+          () => {
+            document.getElementById("status").innerText = "Tải lên thành công!";
+          }
+        );
+      }
+    </script>
+  </body>
+</html>

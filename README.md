@@ -1,0 +1,1 @@
+# Video Portal Project\nWeb app with user/admin access using Firebase Authentication, Firestore and Storage.
