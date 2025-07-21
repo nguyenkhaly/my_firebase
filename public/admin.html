@@ -21,7 +21,7 @@
         apiKey: "AIzaSyAXUcgQ2Si4tRs4Ti9GF29ND6xA4NR-uig",
         authDomain: "test-iptv-faa05.firebaseapp.com",
         projectId: "test-iptv-faa05",
-        storageBucket: "test-iptv-faa05.firebasestorage.app",
+        storageBucket: "test-iptv-faa05.appspot.com",
         messagingSenderId: "686255418018",
         appId: "1:686255418018:web:a02927ac1d82acad7305fb",
         measurementId: "G-X4L1L3YLD2",
@@ -43,12 +43,16 @@
         uploadTask.on(
           "state_changed",
           (snapshot) => {
+            console.log("Uploading...");
             document.getElementById("status").innerText = "Đang tải lên...";
           },
           (error) => {
-            document.getElementById("status").innerText = "Lỗi: " + error;
+            console.error("Upload error:", error);
+            document.getElementById("status").innerText =
+              "Lỗi: " + error.message;
           },
           () => {
+            console.log("Upload successful!");
             document.getElementById("status").innerText = "Tải lên thành công!";
           }
         );
