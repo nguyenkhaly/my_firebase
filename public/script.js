@@ -1,11 +1,11 @@
 // Cấu hình Firebase của bạn
 const firebaseConfig = {
-  apiKey: "AIzaSyAXUcgQ2Si4tRs4Ti9GF29ND6xA4NR-uig",
-  authDomain: "test-iptv-faa05.firebaseapp.com",
-  projectId: "test-iptv-faa05",
-  storageBucket: "test-iptv-faa05.appspot.com",
-  messagingSenderId: "686255418018",
-  appId: "1:686255418018:web:a02927ac1d82acad7305fb"
+apiKey: "AIzaSyCgr5cYNEcVIZj95yE3CdQwCqEcYXQRP-A",
+  authDomain: "ip-tv-9568e.firebaseapp.com",
+  projectId: "ip-tv-9568e",
+  storageBucket: "ip-tv-9568e.appspot.com",
+  messagingSenderId: "872803283406",
+  appId: "1:872803283406:web:09e602f4d7b98b2fa8fb9f"
 };
 
 // Khởi tạo Firebase
